@@ -1,13 +1,9 @@
-const LauncherCard = () => {
-    return(
-        <>
-        <div className="launches-card">
-        <h1>Saocom</h1>
-        <h2>Falcon</h2>
-        </div>
-        </>
-
-    )
+const Card = ({ rocketName }) => {
+  return (
+    <div draggable="true" className="launches-card">
+      <h2>{rocketName}</h2>
+    </div>
+  )
 }
 
-export default LauncherCard
+export default Card
