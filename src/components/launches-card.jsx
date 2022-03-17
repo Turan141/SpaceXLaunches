@@ -1,6 +1,6 @@
-const Card = ({ rocketName }) => {
+const Card = ({ rocketName, id }) => {
   return (
-    <div draggable="true" className="launches-card">
+    <div className="launches-card">
       <h2>{rocketName}</h2>
     </div>
   )

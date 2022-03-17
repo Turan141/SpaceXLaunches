@@ -31,7 +31,7 @@ function App() {
         .then((data2) => setNextApi(data2))
     }
     function myFunction() {
-      let timeout = setTimeout(fetchHandler, 2000)
+      let timeout = setTimeout(fetchHandler, 1000)
     }
     myFunction()
   }, [])
@@ -40,7 +40,12 @@ function App() {
     <div className="App">
       <div className="launcher-container">
         {pastApi ? (
-          <LaunchContainer launchType={'Past Launches'} apidata={pastApi} />
+          <LaunchContainer
+            id={1}
+            launchType={'Past Launches'}
+            apidata={pastApi}
+            isDragabble={false}
+          />
         ) : (
           <Skeleton
             sx={{ bgcolor: 'grey.400' }}
@@ -53,9 +58,11 @@ function App() {
       <div className="launcher-container">
         {nextApi ? (
           <LaunchContainer
+            id={2}
             launchType={'Next Launches'}
             apidata={nextApi}
             setMyLaunches={setMyLaunches}
+            isDragabble={true}
           />
         ) : (
           <Skeleton
@@ -67,7 +74,12 @@ function App() {
         )}
       </div>
       <div className="launcher-container">
-        <LaunchContainer launchType={'My Launches'} apidata={myLaunches} />
+        <LaunchContainer
+          id={3}
+          launchType={'My Launches'}
+          apidata={myLaunches}
+          isDragabble={true}
+        />
       </div>
     </div>
   )
