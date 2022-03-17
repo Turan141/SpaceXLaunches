@@ -1,6 +1,12 @@
-const Card = ({ rocketName, id }) => {
+const Card = ({ rocketName, setCardOpened, data, setData }) => {
   return (
-    <div className="launches-card">
+    <div
+      className="launches-card"
+      onClick={() => {
+        setCardOpened(true)
+        setData(data)
+      }}
+    >
       <h2>{rocketName}</h2>
     </div>
   )

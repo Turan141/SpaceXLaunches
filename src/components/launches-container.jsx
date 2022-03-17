@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Alert from '@mui/material/Alert'
 
 import Card from './launches-card'
@@ -8,13 +8,11 @@ const LaunchContainer = ({
   id,
   launchType,
   apidata,
-  setMyLaunches,
+  setCardOpened,
+  setData,
 }) => {
   const [isDeployed, setDeployed] = useState(false)
   const [isCanceled, setCanceled] = useState(false)
-  useEffect(() => {
-    console.log(apidata)
-  }, [])
 
   function dragStart(e) {
     e.dataTransfer.setData('Text', e.target.id)
@@ -28,7 +26,13 @@ const LaunchContainer = ({
         id={elem.date_unix}
         className="CardStack"
       >
-        <Card rocketName={elem.name} draggable="true" />
+        <Card
+          rocketName={elem.name}
+          setCardOpened={setCardOpened}
+          draggable="true"
+          data={elem}
+          setData={setData}
+        />
       </div>
     )
   })
@@ -50,7 +54,6 @@ const LaunchContainer = ({
         setDeployed(false)
       }, 1000)
     }
-
     if (
       e.target.className === 'launchcard' &&
       e.target.id !== '1' &&

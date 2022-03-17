@@ -4,7 +4,7 @@ import './App.css'
 import { Skeleton } from '@mui/material'
 import LaunchContainer from './components/launches-container'
 
-function App() {
+function Main({ setCardOpened, setData }) {
   const [pastApi, setPastApi] = useState(null)
   const [nextApi, setNextApi] = useState(null)
   const [myLaunches, setMyLaunches] = useState([])
@@ -44,6 +44,8 @@ function App() {
             launchType={'Past Launches'}
             apidata={pastApi}
             isDragabble={false}
+            setCardOpened={setCardOpened}
+            setData={setData}
           />
         ) : (
           <Skeleton
@@ -62,6 +64,8 @@ function App() {
             apidata={nextApi}
             setMyLaunches={setMyLaunches}
             isDragabble={true}
+            setCardOpened={setCardOpened}
+            setData={setData}
           />
         ) : (
           <Skeleton
@@ -78,9 +82,39 @@ function App() {
           launchType={'My Launches'}
           apidata={myLaunches}
           isDragabble={true}
+          setCardOpened={setCardOpened}
+          setData={setData}
         />
       </div>
     </div>
+  )
+}
+
+const CardDetails = ({ cardData, setCardOpened }) => {
+  return (
+    <>
+      <p className="details">
+        {cardData.details ? cardData.details : 'No additional data'}
+      </p>
+      <button className="retunBtn" onClick={() => setCardOpened(false)}>
+        Return to Main Menu
+      </button>
+    </>
+  )
+}
+
+function App() {
+  const [isCardOpened, setCardOpened] = useState(false)
+  const [cardData, setData] = useState(null)
+
+  return (
+    <>
+      {!isCardOpened ? (
+        <Main setCardOpened={setCardOpened} setData={setData} />
+      ) : (
+        <CardDetails cardData={cardData} setCardOpened={setCardOpened} />
+      )}
+    </>
   )
 }
 
