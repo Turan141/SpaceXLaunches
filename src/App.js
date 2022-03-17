@@ -4,10 +4,11 @@ import './App.css'
 import { Skeleton } from '@mui/material'
 import LaunchContainer from './components/launches-container'
 
+
 function Main({ setCardOpened, setData }) {
-  const [pastApi, setPastApi] = useState(null)
-  const [nextApi, setNextApi] = useState(null)
-  const [myLaunches, setMyLaunches] = useState([])
+  const [ pastApi, setPastApi ] = useState(null)
+  const [ nextApi, setNextApi ] = useState(null)
+  const [ myLaunches, setMyLaunches ] = useState([])
 
   useEffect(() => {
     const url = 'https://api.spacexdata.com/v5/launches/past'
@@ -104,8 +105,8 @@ const CardDetails = ({ cardData, setCardOpened }) => {
 }
 
 function App() {
-  const [isCardOpened, setCardOpened] = useState(false)
-  const [cardData, setData] = useState(null)
+  const [ isCardOpened, setCardOpened ] = useState(false)
+  const [ cardData, setData ] = useState(null)
 
   return (
     <>

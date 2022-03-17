@@ -3,6 +3,7 @@ import Alert from '@mui/material/Alert'
 
 import Card from './launches-card'
 
+
 const LaunchContainer = ({
   isDragabble,
   id,
@@ -11,8 +12,8 @@ const LaunchContainer = ({
   setCardOpened,
   setData,
 }) => {
-  const [isDeployed, setDeployed] = useState(false)
-  const [isCanceled, setCanceled] = useState(false)
+  const [ isDeployed, setDeployed ] = useState(false)
+  const [ isCanceled, setCanceled ] = useState(false)
 
   function dragStart(e) {
     e.dataTransfer.setData('Text', e.target.id)
