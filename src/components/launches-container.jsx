@@ -21,6 +21,7 @@ const LaunchContainer = ({
   const CardStack = apidata.slice(0, 3).map((elem) => {
     return (
       <div
+        key={elem.date_unix}
         onDragStart={(e) => dragStart(e)}
         draggable={isDragabble}
         id={elem.date_unix}
