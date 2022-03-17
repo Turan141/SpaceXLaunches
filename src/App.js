@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
-
 import './App.css'
-import { Skeleton } from '@mui/material'
 
+import { Skeleton } from '@mui/material'
 import LaunchContainer from './components/launches-container'
 
 function App() {
