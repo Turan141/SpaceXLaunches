@@ -59,11 +59,18 @@ const LaunchContainer = ({
       e.target.id !== '1' &&
       e.target.id === '2'
     ) {
-      e.target.appendChild(document.getElementById(data))
-      setCanceled(true)
-      setTimeout(() => {
-        setCanceled(false)
-      }, 1000)
+      let answer = ''
+      let confirm = () => {
+        return (answer = prompt('Are you sure?!  Answer only - YES or NO'))
+      }
+      confirm()
+      if (answer === 'yes' || answer === 'YES') {
+        e.target.appendChild(document.getElementById(data))
+        setCanceled(true)
+        setTimeout(() => {
+          setCanceled(false)
+        }, 1000)
+      }
     }
     e.preventDefault()
   }
